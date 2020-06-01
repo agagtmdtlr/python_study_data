@@ -1,0 +1,5 @@
+<Person id="kim">
+	<name>김철수</name>
+	<age>30</age>
+	<address>용산구 도원동</address>
+</Person>

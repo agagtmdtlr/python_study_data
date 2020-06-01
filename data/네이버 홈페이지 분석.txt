@@ -1,0 +1,21 @@
+네이버 홈페이지(https://www.naver.com/)에서 다음 항목을 크롤링해보도록 한다.
+크롤링 내용
+1. 급상승 검색어 : 순위와 검색어 및 링크 주소 
+2. 뉴스 목록 : 제목과 링크(href)
+
+
+급상승 검색어
+방법 : <li> 태그 중에서 data-order 속성이 있는 항목들 찾기
+
+<li class="ah_item">
+	<a href="#" class="ah_a" data-clk="lve.keyword">
+		<span class="ah_r">1</span>
+		<span class="ah_k">태영호</span>
+	</a>
+</li>
+
+방법 : <a> 태그의 class="apln_link"인 항목을 찾기
+
+<a class="apln_link" href="http://biz.herald8000722" data-gdid="016" >
+손학규, 황교안 면전에 “탄핵 불복 품격 떨어진다”
+</a></li><li class="apln_item">

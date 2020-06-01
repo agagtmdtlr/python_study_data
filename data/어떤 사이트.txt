@@ -1,0 +1,337 @@
+# http://blog.naver.com/jade8148/220921202201
+
+행렬 추가 및 자르기
+numpy.concatenate((A,B), axis=0 or 1) 0 -> y축 / 1 -> x축
+numpy.split(A,#(몇 개로 자를 것인가?),axis=0)
+
+-b라는 리스트, 튜플 등 순차형 자료를 배열로 생성
+a = np.array(b)
+
+
+
+
+-Slicing할 경우 복사를 한 건 아니고 뷰만 가져온 것임. Slicing한 것을 수정하면 원본도 바뀜
+복사하려면 아래와 같이 할 것.
+a[5:8].copy()
+
+-2 * 3 행렬에 표준 정규분포에서 뽑은 난수들을 랜덤하게 넣음
+np.random.standard_normal((2,3))
+
+
+-행렬에 특정 조건을 만족하는 원소를 특정수로 바꾸기
+data[data<0]=0 -> data 행렬에 있는 원소 중에서 0보다 작은 것은 0으로 바꾼다.
+
+-두 행렬의 원소가 같은지 확인
+a == b -> 둘의 행렬의 크기가 같을 때 사용가능하며 둘의 원소가 같은지 다른지 확인해준다.
+
+-원소 바꾸기***
+np.where(a>0, 2, -2)
+a의 원소 중 0보다 큰 것은 2로, 나머지는 -2로 다 바꾼다.
+
+-sort를 이용해 순서대로 배열 가능
+a.sort()
+
+-a의 원소 중 0보다 큰 것들의 개수
+(a>0).sum()
+
+-행렬 연산
+np.unique(a) -> a의 원소들 중 중복된 원소를 제거하고 남은 원소를 정렬된 형태로 반환.
+np.intersect1d(x,y) -> 교집합
+np.union1d(x,y) -> 합집합
+np.setdiff1d(x,y) -> 차집합
+
+-특정 array에서 원소 개수 구하기
+collections library 이용
+import collection
+b = collection.Counter(a[:,0])
+b에 dictionary 형식으로 각 원소의 개수를 저장해줌.
+
+-특정 열들로 새로운 array 만드리
+a = [b[:,0],c[:,0]]
+
+numpy -> 벡터나 행렬같은 것을 사용하여 굉장히 많은 숫자를 효율적으로 처리하게 만들어줌.
+
+numpy 기능
+n-darray
+-> 원소가 다 같은 타입이어야 한다. 특히 numpy는 숫자를 쓰는데에 유용함 문자는 다른 형태로 쓰기
+n차원 array
+보통은 1-d / 2-d임
+array만들기
+a = [1,2,3,4,5]
+n = np.array(a)
+
+n.shape
+-> n의 모양 보여줌 (3,4)
+
+n.shape()
+-> 에러 뜸. 'tuple' object is not callable <- 함수가 아닌것을 함수처럼 쓸 때 뜨는 에러
+
+원소가 0으로 된 array만들기
+np.zeros(shape,detype,order)
+a = np.array((2,3)) -> shape은 튜플로 넣기
+order -> 연산속도를 빠르게 할 때 쓰일 수 있다. 가로연산이 많나? 세로연산이 많나?
+np.zeros(10)
+
+원소가 1로된 array만들기
+a = np.ones((1,2))
+
+shape에서 (10,)-> 1차원 와 (10,1)-> 2차원 은 다르다.
+concatenate 안 될 경우 reshape 메소드를 통해서 차원을 바꿔준 후 붙여주어야 한다.
+
+5로 초기화하고 싶다
+np.ones((3,3)) * 5 <- 리스트와 다른점 리스트는 concatenate되는데 이거는 elementwise하게 계산된다.
+
+np.eye(3)
+np.identity(3)
+-> 3 * 3 단위행렬
+
+numpy 행렬연산에 좋다.
+
+
+numpy array shape바꾸기
+na.reshape()
+
+
+리스트랑 다르다. 리스트는 a[1][2]와 같이 해주어야 한다.
+
+slicing 차이
+p[0:2,0] -> 숫자 하나로 지정할 경우 1차원으로 뽑음
+p[0:2,:0] -> 범위로 나타낼 경우 2차원으로 뽑는다
+
+
+n = np.array([1,2,3,4,5])
+a = n[np.array([3,2,1])]
+인덱스자리에 numpy로된 인덱스 넣을경우 인덱스 순서대로 나옴
+
+a>3
+>>>np.array([False,False,False,True,True])
+
+n[n>3] n중에 3보다 큰 원소들만 뽑아냄*****
+
+array와 array를 붙이는 것. -> concatenate
+column으로 붙이기
+np.c_[a,b]
+row로 붙이기
+np.r_[a,b]
+
+numpy에서 random number 만들기 -> 모두 dimension을 지정해줄 수 있어서 한 번에 뽑을 수 있다.
+np.random.randn() -> 표준정규분포
+random모듈의 경우 하나씩 뽑을 수 있는데
+np.random.randn(3,4)의 경우 dimension을 지정하여 한 번에 다 뽑을 수 있다.(원하는 매크릭스 형태로)
+
+random number를 뽑을 때 같은 sample로 유지하고 싶을 때
+np.random.seed(100) 아무수나 넣으면 그 다음 random number부터는 같은 random number 나옴
+
+np.random.seed() 빈 칸으로 둘 경우 다시 seed가 없어짐
+몬테카를로 시뮬레이션 할 때 greek 구할 때 seed 지정 필요할 것임
+
+np.random.multivariate_normal() 다변수 정규분포** 나중에 쓸 것임
+
+numpy 쓰는 이유
+
+import numpy as np
+import random
+import time
+n = 10000000
+r=[]
+
+t0 = time.time()
+for i in range(n):
+    r.append(random.normalvariate(0,1))
+
+t1 = time.time()
+
+t2 = time.time()
+nr = np.random.randn(n)
+t3 = time.time()
+
+print(t1-t0)
+print(t3-t2)
+
+시간 차이 엄청나다
+random 모듈 쓰지 말기. numpy에 비해 걸리는 시간 차이가 많이 난다.
+
+ndarray에 들어가는 원소는 모두 같은 자료형이어야 한다.
+a.shape() 차원의 크기 알려줌
+a.dtype() 원소의 자료형 알려줌
+
+np.array(data) 배열을 받아 Numpy 배열 생성
+
+np.range(10) ->[0,1,2,3,4,5,6,7,8,9]
+np.eye() / np.identity() -> 단위행렬
+np.eye(4) -> 4*4
+np.eye(3,4) -> 3*4
+
+ndarray 자료형 지정하기
+np.array(data, dtype = np.float64(np.int64))
+
+type 변경
+new_arr = arr.astype(np.float64)
+
+배열과 스칼라의 연산
+arr 연산자(+-*/) arr -> 각 원소끼리 연산해줌
+arr * arr -> 각 원소끼리의 곱
+﻿​arr / 4 -> 모든 원소 나누기 4
+
+Numpy 조심할 점
+색인을 통해 슬라이스 할 경우 이 슬라이스 한 것을 수정하면 원본도 바뀐다.
+복사를 하려는 경우 a[4:5].copy() 붙이기
+
+name = np.array(['Jade','Bob','Micle','Jade','Hs'])
+name == 'Jade'
+array([Ture, False, False, True, False])
+
+불리언 색인으로 쓸 수 있음
+
+데이터에 음수를 모두 0으로 만들 경우
+***data[data<0] = 0
+data[조건] = 1 -> 조건인 원소를 모두 1로 바꿈
+
+팬시 색인
+색인을 이용하여 순서를 바꾼다
+arr[[4,2,1,5]]
+arr의 4행, 2행, 1행, 5행 순서로 표시함
+
+b.reshpae((2,1))
+b.T
+
+내적 구하기
+X.T * X -> np.dot(X.T,X)
+
+단항 유니버셜 함수
+np.sqrt(arr)
+np.exp(arr)
+np.maximum(x)
+np.abs(x) 절대값
+np.square(x)
+np.log(x) / np.log10(x)
+np.sign(x) -> 각 원소의 부호
+np.ceil(x) -> 소수점 올림
+np.floor(x) -> 소수점 버림
+np.rint(x) -> 소수점 반올림
+np.maximum(x,y) -> x array와 y array에서 각각 maximum 뽑아옴
+np.modf(x) -> 각 원소를 소수와 정수를 분리
+np.isnan -> NaN(Not a Number) 불리언으로 반환
+np.isfinite / np.isinf -> 유한인지 무한인지 반환
+np.sin(x) / np.cos(x) ... -> 삼각함수
+
+배열 연산을 통해 반복문을 제거하는 것 -> 벡터화
+빠른 스피드업을 할 수 있다!!!
+
+np.where(조건,조건 만족 시 값(혹은 array), 조건 불만족 시 값(혹은 array))
+np.where(arr>0,2,-1)
+
+np.mean(x) / arr.mean()
+np.std(x) / arr.std()
+np.var(x) / arr.var()
+np.min(x) / arr.min()
+np.max(x) / arr.max()
+np.argmin(x) / np.argmin() -> 최소값인 것의 index
+np.argmax(x) / np.argmax() -> 최대값인 것의 index
+np.sum(x) / arr.sum()
+np.cumsum(x) / arr.cumsum()
+np.comprod(x) / arr.comprod()
+
+특정 조건인 것의 개수 세기
+(조건).sum()
+(arr>0).sum() True는 1로 취급
+
+bools.any() -> bool 중에 True가 하나라도 있나?
+bools.all() -> bool 원소 모두 True인가?
+
+정렬
+arr.sort()
+
+전체 값 중에서 특정 분위수 구하는 법
+정렬 후 특정 분위수의 index 구해서 불러오기
+
+np.unique(x) -> 반복 되는것 제거 후 반환
+np.intersect1d(x,y) -> 교집합
+np.union1d(x,y) -> 합집합
+np.in1d(x,y) -> x의 원소 중 y의 원소를 포함하는 지 불리언 배열 반환
+np.setdiff1d(x,y) -> 차집합
+np.setxor1d(x,y) -> 한 배열에는 포함되지만 두 배열 모두에는 포함되지 않는 원소들
+
+
+
+
+
+
+
+벡터화 시키는 연습하기
+numpy
+corrcoef
+cov
+
+x = np.random.randn(10,3) -> 10개짜리 관측치와 3개의 변수
+
+axis = 0 -> 같은열 행끼리(세로로 계산)
+axis = 1 -> 같은행 열끼리(가로로 계산)
+
+
+np.mean(x) -> 전체 평균
+np.mean(x,0) -> 같은열 행끼리(세로) 평균
+np.mean(x,1) -> 같은열 열끼리(가로) 평균
+np.var(x,0)
+np.var(x,1)
+
+cov = np.cov(x) -> row 방향으로 covariance를 구함
+cov = np.cov(x.T) -> column 방향으로 covariance를 구함
+
+
+cov = np.cov(x.T) -> n-1로 나누어 준 것
+var = np.var(x,0) -> n으로 나누어 준 것
+-> 주의하기
+여기서 variance 값이 다르다
+이유 : n으로 나눌 때가 있고 n-1로 나눌 때가 있다.
+
+np.diff(x,1) / np.diff(x,0) -> 원소 간의 차이를 구해줌
+np.diff(x,(n=)1,(axis=)1)
+n이 2이면 2차 차분(차분의 차분)
+n이 3이면 3차 차분(차분의 차분의 차분)
+로그 수익률 계산에 사용 가능 -> 로그 수익률은 연속복리수익률임
+log(Pt)-log(P(t-1))
+
+포트폴리오 수익률
+벡터화
+기대수익률 w'*R
+w'*covmat*w
+
+random과 math라는 모듈보다는 numpy를 통해 구하는 것이 훨씬 효율적이다.
+
+ndarray에 각 column에 각기 다른 수를 더해주고 싶음
+x는 (10,3)짜리 ndarray
+1열에 0, 2열에 1, 3열에 2 더해주고 싶음
+y = x + np.array([[0,1,2]])
+
+Broadcasting
+(n,m) 행렬에 scalar 더하면 전체 원소에 더해줌
+(n,1) 더하면 각 row에 더해줌
+(m,1) 더하면 각 column에 더해줌
+
+각 열에 여러 주가 자료 있을 때
+처음을 100으로 scaling해주려함
+각시기별주가/첫주가 * 100
+
+Broadcasting으로 하기(for문으로 하는 것보다 훨씬 효율적이다.)
+z = x / x[0,:] * 100
+x의 모든 행에 대해 첫 번째 행의 값으로 나누어 준 후 100을 곱해준다.
+많은 수의 난수를 만드는 것을 한 번에 끝내야 한다.
+
+자주 쓰이는 숫자는 특정 변수에다 넣어놓기
+
+np.concatenate([a,b])
+concatenate확인하기
+x = np.c_[x,x[:,0]]
+
+broad casting
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.random.randint(60,100,(10,3))
+y = x+1
+z = x + np.array([[0,1,2]])
+
+z = x / x[0,:] * 100
+
+plt.plot(z)

@@ -1,0 +1,27 @@
+def correlation(x, y):
+    n = len(x)
+    vals = range( n )
+    
+    x_sum = 0.0
+    y_sum = 0.0
+    
+    x_sum_pow = 0.0
+    y_sum_pow = 0.0
+    
+    mul_xy_sum = 0.0 
+    
+    for i in vals :
+        mul_xy_sum = mul_xy_sum + float(x[i]) * float(y[i])
+        x_sum = x_sum + float(x[i])
+        y_sum = y_sum + float(y[i])
+          
+        x_sum_pow = x_sum_pow + pow(float(x[i]), 2)
+        y_sum_pow = y_sum_pow + pow(float(y[i]), 2)
+        
+    try:
+        result = ((n*mul_xy_sum)- (x_sum * y_sum)) / \
+            math.sqrt(((n*x_sum_pow) - pow(x_sum, 2)) * ((n*y_sum_pow) - pow(y_sum, 2)))
+    except :
+        result = 0.0         
+        
+    return result

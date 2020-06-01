@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.5.1/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.5.1/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_3bb9c5262e1842fb8c1306f2d77accec {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_3bb9c5262e1842fb8c1306f2d77accec" ></div>
+        
+</body>
+<script>    
+    
+            var map_3bb9c5262e1842fb8c1306f2d77accec = L.map(
+                "map_3bb9c5262e1842fb8c1306f2d77accec",
+                {
+                    center: [37.5642135, 127.0016985],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 10,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_1bf414f5fd7043b885627a5502e4301c = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_3bb9c5262e1842fb8c1306f2d77accec);
+        
+    
+            var marker_fa9dee5f25454a4c93aaef0c26d3c7cc = L.marker(
+                [37.46997231, 127.0910208],
+                {}
+            ).addTo(map_3bb9c5262e1842fb8c1306f2d77accec);
+        
+    
+            var icon_b29c9cd0e3814160a3236e9c51475e6f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_fa9dee5f25454a4c93aaef0c26d3c7cc.setIcon(icon_b29c9cd0e3814160a3236e9c51475e6f);
+        
+    
+        var popup_a584118e95a64b49809f2fb348c5447f = L.popup({"maxWidth": "100%"});
+
+        
+            var html_ce6c54e9f5594a22b8842adbbdb207ea = $(`<div id="html_ce6c54e9f5594a22b8842adbbdb207ea" style="width: 100.0%; height: 100.0%;">LH강남3단지작은도서관</div>`)[0];
+            popup_a584118e95a64b49809f2fb348c5447f.setContent(html_ce6c54e9f5594a22b8842adbbdb207ea);
+        
+
+        marker_fa9dee5f25454a4c93aaef0c26d3c7cc.bindPopup(popup_a584118e95a64b49809f2fb348c5447f)
+        ;
+
+        
+    
+    
+            var marker_201e53c9323e4f48885ee5e09bc702a2 = L.marker(
+                [37.47153836, 127.096582],
+                {}
+            ).addTo(map_3bb9c5262e1842fb8c1306f2d77accec);
+        
+    
+            var icon_241b5bfefe594a4182722fe90e96b54d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_201e53c9323e4f48885ee5e09bc702a2.setIcon(icon_241b5bfefe594a4182722fe90e96b54d);
+        
+    
+        var popup_ba41770a8eec4c59bfe85bbc28a040f1 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_bc488b0ee95f430399ee1ae0e242c40b = $(`<div id="html_bc488b0ee95f430399ee1ae0e242c40b" style="width: 100.0%; height: 100.0%;">강남구립못골도서관</div>`)[0];
+            popup_ba41770a8eec4c59bfe85bbc28a040f1.setContent(html_bc488b0ee95f430399ee1ae0e242c40b);
+        
+
+        marker_201e53c9323e4f48885ee5e09bc702a2.bindPopup(popup_ba41770a8eec4c59bfe85bbc28a040f1)
+        ;
+
+        
+    
+    
+            var marker_a331ce9022d74fffb21c229e5c35dcde = L.marker(
+                [37.4964968, 127.0320274],
+                {}
+            ).addTo(map_3bb9c5262e1842fb8c1306f2d77accec);
+        
+    
+            var icon_b037252db80a410e88fc375ee42fec36 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_a331ce9022d74fffb21c229e5c35dcde.setIcon(icon_b037252db80a410e88fc375ee42fec36);
+        
+    
+        var popup_2775813b3f694fe5a177d18643ac55e5 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_0b04e446ad1149b38a78a5b3a57be563 = $(`<div id="html_0b04e446ad1149b38a78a5b3a57be563" style="width: 100.0%; height: 100.0%;">강남역삼푸른솔도서관</div>`)[0];
+            popup_2775813b3f694fe5a177d18643ac55e5.setContent(html_0b04e446ad1149b38a78a5b3a57be563);
+        
+
+        marker_a331ce9022d74fffb21c229e5c35dcde.bindPopup(popup_2775813b3f694fe5a177d18643ac55e5)
+        ;
+
+        
+    
+    
+            var marker_365e7fc594e340bca1bb00f9709ca8e1 = L.marker(
+                [37.46971323, 127.1130164],
+                {}
+            ).addTo(map_3bb9c5262e1842fb8c1306f2d77accec);
+        
+    
+            var icon_5b22e0a9d1cd4b478cea0be2ee46ac48 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_365e7fc594e340bca1bb00f9709ca8e1.setIcon(icon_5b22e0a9d1cd4b478cea0be2ee46ac48);
+        
+    
+        var popup_500cf4bc5c904deb8fd562f8b0a5c5d9 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_0b8d468c352e45429ff812e228be822c = $(`<div id="html_0b8d468c352e45429ff812e228be822c" style="width: 100.0%; height: 100.0%;">강남한신휴플러스8단지작은도서관</div>`)[0];
+            popup_500cf4bc5c904deb8fd562f8b0a5c5d9.setContent(html_0b8d468c352e45429ff812e228be822c);
+        
+
+        marker_365e7fc594e340bca1bb00f9709ca8e1.bindPopup(popup_500cf4bc5c904deb8fd562f8b0a5c5d9)
+        ;
+
+        
+    
+    
+            var marker_953a99942d4e4ef28408f555beaa8c22 = L.marker(
+                [37.47586067, 127.1134903],
+                {}
+            ).addTo(map_3bb9c5262e1842fb8c1306f2d77accec);
+        
+    
+            var icon_0c9597fa50594188b930449e74ec7d97 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_953a99942d4e4ef28408f555beaa8c22.setIcon(icon_0c9597fa50594188b930449e74ec7d97);
+        
+    
+        var popup_e23a1f0a9571401c8f1dd0d714cc0f92 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_ad2605dd1d034041b9e1c24e41eb36e1 = $(`<div id="html_ad2605dd1d034041b9e1c24e41eb36e1" style="width: 100.0%; height: 100.0%;">강남한양수자인작은씨앗도서관</div>`)[0];
+            popup_e23a1f0a9571401c8f1dd0d714cc0f92.setContent(html_ad2605dd1d034041b9e1c24e41eb36e1);
+        
+
+        marker_953a99942d4e4ef28408f555beaa8c22.bindPopup(popup_e23a1f0a9571401c8f1dd0d714cc0f92)
+        ;
+
+        
+    
+</script>

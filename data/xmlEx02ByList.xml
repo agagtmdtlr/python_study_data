@@ -1,0 +1,12 @@
+<stores>
+	<store id="kimgane" sales="1000">
+		<name>김가네</name>
+		<owner age="30">박영희</owner>
+		<address>서초구 서초동  222</address>
+	</store>
+	<store id="bulbak" sales="2000">
+		<name>강남 불백</name>
+		<owner age="40">김철수</owner>
+		<address>강남구 역삼동 111</address>
+	</store>
+</stores>

@@ -1,0 +1,14 @@
+<members>
+	<member aaa="bbb" ccc="ddd" id="kim">
+		<name>김철수</name>
+		<age>30</age>
+		<gender>남자</gender>
+		<address>마포 공독동</address>
+	</member>
+	<member aaa="bbb" ccc="ddd" id="park">
+		<name>박영희</name>
+		<age>40</age>
+		<gender>여자</gender>
+		<address>용산 도원동</address>
+	</member>
+</members>

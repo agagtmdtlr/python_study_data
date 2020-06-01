@@ -1,0 +1,17 @@
+mylist = list(('강감찬','김유신','신사임당',
+              '이순신','이성계','이봉창','김춘추'))
+
+print('4번째 요소만 출력')
+print(mylist[3])
+print('뒤에서 2번째 요소만 출력')
+print(mylist[-2])
+print('1번째부터 3번째까지 출력')
+print(mylist[0:3])
+print('4번째부터 끝까지 출력')
+print(mylist[3:])
+print('홀수번째만 출력')
+print(mylist[0::2])
+print('짝수번째만 출력')
+print(mylist[1::2])
+print('3의 배수만 출력')
+print(mylist[2::3])

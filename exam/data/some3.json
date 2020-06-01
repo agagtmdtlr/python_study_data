@@ -1,0 +1,11 @@
+{	
+    "member" : {
+		"name" : "강감찬",
+		"address" : "용산구 도원동",
+		"age" : "30"
+	},
+	"company" : {
+		"jik" : "과장",
+		"sabun" : "a1234"
+	}
+}
